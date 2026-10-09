@@ -90,8 +90,9 @@ const careTips = [
 ]
 
 export function ServicesSection() {
-  const [activeService, setActiveService] = useState(services[0].value)
+  const [activeService, setActiveService] = useState('patios')
   const selectedService = services.find((service) => service.value === activeService) ?? services[0]
+  if (!selectedService) return null
   const ServiceIcon = selectedService.icon
 
   return (
