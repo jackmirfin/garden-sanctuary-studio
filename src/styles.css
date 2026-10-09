@@ -4,6 +4,8 @@
 
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant data-horizontal (&[data-orientation="horizontal"]);
+@custom-variant data-vertical (&[data-orientation="vertical"]);
 
 @theme inline {
   --color-background: var(--background);
@@ -44,6 +46,7 @@
 :root {
   --font-fraunces: "Fraunces";
   --font-jakarta: "Plus Jakarta Sans";
+  --font-hero: "Cormorant Garamond", Georgia, serif;
   --hero-ivory: oklch(0.965 0.014 85);
   --hero-shade: oklch(0.17 0.015 150);
   --logo-ivory-filter: brightness(0) saturate(100%) invert(96%) sepia(10%) saturate(290%) hue-rotate(350deg) brightness(100%);
@@ -200,7 +203,7 @@ a {
 .advance-hero-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, color-mix(in oklab, var(--hero-shade) 52%, transparent) 0%, color-mix(in oklab, var(--hero-shade) 24%, transparent) 38%, transparent 70%); }
 .advance-hero-inner { max-width: 1280px; width: 100%; margin: 0 auto; padding: 146px 48px 124px; }
 .advance-hero-copy { max-width: 740px; }
-.advance-hero-title { color: var(--hero-ivory); font-size: 76px; font-weight: 300; line-height: 1.08; letter-spacing: 0; font-variation-settings: "opsz" 72, "SOFT" 0, "WONK" 0; margin: 0; }
+.advance-hero-title { color: var(--hero-ivory); font-family: var(--font-hero); font-size: 80px; font-weight: 300; line-height: 1.08; letter-spacing: 0; margin: 0; }
 .advance-hero-title span { display: block; }
 .advance-hero-title em { font-weight: 300; }
 .advance-hero-description { max-width: 400px; margin-top: 28px; font-size: 15px; line-height: 1.8; color: color-mix(in oklab, var(--hero-ivory) 88%, transparent); }
@@ -224,4 +227,5 @@ a {
  .advance-hero-description { font-size: 14px; line-height: 1.8; margin-top: 24px; max-width: 315px; }
  .advance-hero-actions { flex-wrap: wrap; gap: 12px 22px; margin-top: 28px; }
 }
-@media (max-width: 370px) { .advance-hero-title { font-size: 42px; } .advance-hero-inner { padding-left: 16px; padding-right: 16px; } .advance-header-logo { width: 215px; } }
+@media (max-width: 420px) { .advance-hero-title { font-size: 42px; } .advance-hero-inner { padding-left: 16px; padding-right: 16px; } }
+@media (max-width: 370px) { .advance-header-logo { width: 215px; } }
