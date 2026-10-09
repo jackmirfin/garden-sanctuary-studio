@@ -1,24 +1,25 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from '@tanstack/react-router'
+import { GardenPlanner } from '@/components/advance/garden-planner'
+import { HeroSection } from '@/components/advance/hero-section'
+import { ProcessSection } from '@/components/advance/process-section'
+import { ProjectGallery } from '@/components/advance/project-gallery'
+import { ServicesSection } from '@/components/advance/services-section'
+import { SiteFooter } from '@/components/advance/site-footer'
+import { SiteHeader } from '@/components/advance/site-header'
+import { TrustSection } from '@/components/advance/trust-section'
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute('/')({
+  head: () => ({ meta: [
+    { title: 'Advance Gardens | Thoughtful Garden Design & Landscaping' },
+    { name: 'description', content: 'Advance Gardens creates thoughtful gardens, carefully built patios, and beautiful outdoor living spaces in Northamptonshire.' },
+    { property: 'og:title', content: 'Advance Gardens | Your favourite place. Just outside.' },
+    { property: 'og:description', content: 'Thoughtful garden design, landscaping, and outdoor living by Advance Gardens.' },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+  ] }),
   component: Index,
-});
+})
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+  return <><SiteHeader /><main id="main-content"><HeroSection /><ProjectGallery /><ProcessSection /><ServicesSection /><GardenPlanner /><TrustSection /></main><SiteFooter /></>
 }
